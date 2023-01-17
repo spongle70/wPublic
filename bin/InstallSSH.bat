@@ -9,6 +9,15 @@ mkdir %PACKAGES%
 
 call %WPUBLIC%\bin\SpeedUpPS.bat
 
+set PSFILE="C:\Program Files\OpenSSH\uninstall-sshd.ps1"
+if exist %PSFILE% (
+   echo "SSH uninstall script"
+   Powershell.exe -ExecutionPolicy Bypass -File %PSFILE%
+)
+
+del /f/s/q "C:\Program Files\OpenSSH\*.*"
+rmdir /s/q "C:\Program Files\OpenSSH"
+
 echo "Download and unpack OpenSSH"
 set PSFILE="%WPUBLIC%\bin\Download.ps1"
 Powershell.exe -ExecutionPolicy Bypass -File %PSFILE%
@@ -21,10 +30,9 @@ if exist "C:\Program Files\OpenSSH\sshd.exe" (
       robocopy "%PACKAGES%\OpenSSH-Win64" "C:\Program Files\OpenSSH" /E
    )
    
-
-if exist "C:\Program Files\OpenSSH\install-sshd.ps1" (
+set PSFILE="C:\Program Files\OpenSSH\install-sshd.ps1"
+if exist %PSFILE% (
    echo "SSH install script"
-   set PSFILE="C:\Program Files\OpenSSH\install-sshd.ps1"
    Powershell.exe -ExecutionPolicy Bypass -File %PSFILE%
 )
 
