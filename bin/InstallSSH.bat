@@ -19,7 +19,7 @@ del /f/s/q "C:\Program Files\OpenSSH\*.*"
 rmdir /s/q "C:\Program Files\OpenSSH"
 
 del /f/s/q "C:\Packages\OpenSSH-Win64\*.*"
-rmdir /s/q "C:\Packages\OpenSSH-Win64\*.*"
+rmdir /s/q "C:\Packages\OpenSSH-Win64"
 
 echo "Download and unpack OpenSSH"
 set PSFILE="%WPUBLIC%\bin\Download.ps1"
