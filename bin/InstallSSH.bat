@@ -7,9 +7,7 @@ set WPUBLIC="C:\wPublic"
 
 mkdir %PACKAGES%
 
-echo "Speed up Powershell processing"
-set PSFILE="%WPUBLIC%\bin\SpeedUp.ps1"
-Powershell.exe -ExecutionPolicy Bypass -File %PSFILE%
+call %WPUBLIC%\bin\SpeedUpPS.bat
 
 echo "Download and unpack OpenSSH"
 set PSFILE="%WPUBLIC%\bin\Download.ps1"
